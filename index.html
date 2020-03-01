@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Service Workers</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -35,6 +35,45 @@
 				margin-left: 20%;
 				width: 100%;
 			}
+
+      /* Style inputs with type="text", select elements and textareas */
+      input[type=text], select, textarea {
+        width: 100%; /* Full width */
+        padding: 12px; /* Some padding */ 
+        border: 1px solid #ccc; /* Gray border */
+        border-radius: 4px; /* Rounded borders */
+        box-sizing: border-box; /* Make sure that padding and width stays in place */
+        margin-top: 6px; /* Add a top margin */
+        margin-bottom: 16px; /* Bottom margin */
+        resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+      }
+
+      /* Style the submit button with a specific background color etc */
+      input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      /* When moving the mouse over the submit button, add a darker green color */
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+
+      /* Add a background color and some padding around the form */
+      .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        width: 60%;
+      }
+      
+      label {
+        color: #000000;
+      }
 		</style>
 
 		<!-- Printing and PDF exports -->
@@ -51,152 +90,157 @@
 			<div class="slides">
 				<section data-markdown>
 					<textarea data-template>
-						## Performant Web Applications
-				
-					      not an oxymoron
+						## Service Workers
 					</textarea>
 				</section>
 				<section>
 					<div class="dcf">
-						<div class="title">
-							Fun fact
-						</div>
-						<img src="apollomeme.png" style="height: 500px;">
+						<img src="dino.png" style="height: 500px;">
+					</div>
+				</section>
+        <section>
+					<div class="dcf">
+						<img src="jianyang.jpg" style="height: 500px;">
+					</div>
+        </section>
+        <section>
+					<div class="dcf">
+						<img src="jared.gif" style="height: 500px;">
+					</div>
+        </section>
+				<section>
+					<div class="dcf">
+						<div class="title" style="margin-left: 0; text-align:center;">Key points</div>
+						<p class="fragment fade-in">1. Why use service workers</p>
+						<p class="fragment fade-in">2. How service workers improve your user experience</p>
+						<p class="fragment fade-in">3. Using service workers wisely</p>
 					</div>
 				</section>
 				<section data-markdown>
-						<textarea data-template>
-							## Why Performance
-						</textarea>
+					<textarea data-template>
+            ### Why use service workers
+					</textarea>
 				</section>
-				<section>
+				<section data-markdown>
+					<textarea data-template>
+              Service workers are scripts that run in the **background** that bring rich offline features.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						  Sounds cool, but why not just use a mobile app for this? 
+
+              Stop abusing the web!
+					</textarea>
+				</section>
+        <section>
 					<div class="dcf">
-						<div class="title" style="margin-left: 0; text-align:center;">Why Performance matters now</div>
-						<p class="fragment fade-in">1. JavaScript is getting bigger</p>
-						<p class="fragment fade-in">2. Bad performance = High bounce rate, low conversion rate</p>
-						<p class="fragment fade-in">3. Changing User Demographics</p>
+						<img src="apps.png" style="height: 500px;">
 					</div>
-				</section>
+        </section>
 				<section>
-						<p class="fragment grow" style="font-size: 72px">90%</p>
-						<p class="fragment fade-in" style="font-size: 36px">of internet users in SE Asia access it via mobile phones</p>
+            <p class="fragment grow" style="font-size: 72px">6140</p>
+            <p class="fragment fade-in-then-semi-out">That's the number of new apps in the Play Store every day</p>
+            <span class="fragment fade-in"><p>Will people even overcome the high BTE to get your app?</p></span>
 				</section>
-				<section>
-						<img src="badinternet.png">
-						<p class="fragment highlight-red">Slow! Slow! Slow!</p>
-				</section>
-				<!-- <section>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment fade-up">fade-up (also down, left and right!)</p>
-						<p class="fragment fade-in-then-out">fades in, then out when we move to the next step</p>
-						<p class="fragment fade-in-then-semi-out">fades in, then obfuscate when we move to the next step</p>
-						<p class="fragment highlight-current-blue">blue only once</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section> -->
-					<section data-background-color="#4D7E65" data-transition="zoom">
+        <section data-background-color="#4D7E65" data-transition="zoom">
+            <div class="dcf" style="margin-bottom: 180px;">
+                <div class="title" style="margin-bottom: 80px;margin-left: 0px; text-align:center;">Why use service workers</div>
+                <div>Provide an offline experience!</div>
+              </div>	
+        </section>
+        <section data-background-color="#4D7E65">
+					<div class="dcf">
+						<div class="title" style="margin-left: 0;">Before</div>
+						<img src="shopee.png" style="height: 500px;">
+					</div>
+        </section>
+        <section data-background-color="#4D7E65">
+					<div class="dcf">
+						<div class="title" style="margin-left: 0;">After</div>
+						<img src="nointernet.png" style="height: 500px;">
+					</div>
+        </section>
+        <section data-background-color="#4D7E65">
+					<div class="dcf">
+						<div class="title" style="margin-left: 0;">Before/After with service workers</div>
+						<img src="shopee.png" style="height: 500px;">
+					</div>
+        </section>
+        <section data-background-color="#4D7E65">
+          <div class="dcf">
+            <div class="title" style="margin-left: 0;">Background sync</div>
+            <div class="container">
+              <form action="?">
+
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Your name..">
+
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Your last name..">
+
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="Your email...">
+
+                <input type="submit" id="submitForm" value="Some Interaction with background sync">
+
+              </form>
+            </div>
+          </div>
+        </section>
+        <section data-background-color="#4D7E65" data-transition="zoom">
+					<div class="dcf">
+						<img src="yousob.jpg" style="height: 500px;">
+					</div>
+        </section>
+					<section data-background-color="#b5533c">
+              <div class="title" style="margin-bottom: 80px;margin-left: 0px;">Getting Started</div>
 							<div class="dcf" style="margin-bottom: 180px;">
-									<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Improving Performance (seemingly)</div>
-									<p>1. Optimize rendering</p>
-									<p>2. Load the right stuff</p>
-									<p>3. Don't load the wrong stuff</p>
+                  <pre><code class="hljs" data-line-numbers="1|2|3-7">if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: '
+      , registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+                  </code></pre>
+                  <p>Read more <a href="https://developers.google.com/web/fundamentals/primers/service-workers">here</a>!</p>
 								</div>	
 					</section>
-				<section data-background-color="#4D7E65">
-						<div class="dcf" style="margin-bottom: 180px;">
-								<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Definitions</div>
-								<p class="fragment">1. First Contentful Paint</p>
-								<p class="fragment">2. Time to Interactive</p>
-								<p class="fragment">3. First Input Delay</p>
-							</div>	
+				<section data-markdown data-background-color="#b5533c">
+					<textarea data-template>
+            ### Using service workers wisely
+					</textarea>
 				</section>
-				<section data-background-color="#4D7E65">
-						<div class="dcf" style="margin-bottom: 180px;">
-								<div class="title" style="margin-bottom: 50px;margin-left: 0px;">Critical Rendering Path</div>
-								<pre><code data-trim data-noescape>
-									&lt;html&gt;
-										&lt;head&gt;
-											&lt;title&gt;gimme coffee&lt;/title&gt;
-										&lt;/head&gt;
-										&lt;body&gt;
-											&lt;p&gt;only good whiskey&lt;/p&gt;
-											&lt;link rel=&rdquo;stylesheet&rdquo; href=&rdquo;/style.css&rdquo;&gt;
-											&lt;script src=&rdquo;/ultraVeryLongScriptThatIsHardlyUsed.js&rdquo;/&gt;
-											&lt;div&gt;
-												Real important stuff here that should totally be rendered
-												Styles for this stuff is in style.css
-											&lt;/div&gt;
-										&lt;/body&gt;
-									&lt;/html&gt;					
-								</code></pre>
-								</code>
-							</div>	
-				</section>
-				<section data-background-color="#4D7E65">
-						<div class="dcf" style="margin-bottom: 180px;">
-								<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Rendering</div>
-								<p class="fragment">1. Load JS stuff asynchronously</p>
-								<p class="fragment">2. Small CSS files in the head </p>
-								<p class="fragment">3. Above the fold content</p>
-								<p class="fragment">4. Cache assets </p>
-							</div>	
-				</section>
-				<section data-background-color="#4D7E65">
-						<div class="dcf" style="margin-bottom: 180px; align-items: flex-start;">
-								<div class="title" style="margin-bottom: 50px;margin-left: 0px;">Serve the right stuff</div>
-								<p>1. Serve the right files: stuff like <a href="https://github.com/gregberge/loadable-components" target="_blank">Loadable Components</a></p>
-								<p>2. Serve the right images</p>
-								<pre><code data-trim data-noescape>
-									&lt;img srcset=&rdquo;small480px.jpg 480w, big640px.jpg 640w&rdquo;
-								 		sizes=&rdquo;(max-width: 600px) 480px, 800px&rdquo;
-									 	src=&rdquo;big640px&rdquo;&gt;
-								</code></pre>
-							</div>	
-					</section>
-					<section data-background-color="#4D7E65" data-transition="zoom">
-							<img src="marie.png" style="height: 500px;">
-							<p class="fragment fade-in">Unnecessary modules, CSS, Divitis</p>
-							<p class="fragment fade-in" style="font-size:14px;">Or write static sites :D</p>	
-					</section>
-					<section data-background-color="#b5533c">
-							<div class="dcf" style="margin-bottom: 180px;">
-									<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Monitoring (static)</div>
-									<p>1. <a style="color:purple;" href="https://www.webpagetest.org/" target="_blank">Webpagetest</a></p>
-									<p>2. <a style="color:purple;" href="https://github.com/GoogleChrome/lighthouse/" target="_blank">Lighthouse</a></p>
-									<p>3. Bundle analyzers</p>
-									<p>4. Devtools</p>
-								</div>	
-					</section>
 					<section data-background-color="#b5533c">
 						<div class="dcf" style="margin-bottom: 180px;">
-							<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Monitoring (Real)</div>
-							<p>1. Firebase</p>
-							<p>2. Standard monitoring tools </p>
+							<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Problems</div>
+							<p>1. Hard to test</p>
+							<p>2. A lot of undefined behaviour happening </p>
+							<p>3. No really good libraries </p>
 						</div>
 					</section>	
 					<section data-background-color="#b5533c">
 							<div class="dcf" style="margin-bottom: 180px;">
-								<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Lessons</div>
-								<p>Observe.</p>
-								<p>Optimize.</p>
-								<p>Overcome.</p>
+								<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Thanks!</div>
+								<p>1. No one likes downloading apps</p>
+								<p>2. Service workers provide an app-like experience without barriers to entry</p>
+                <p>3. Service workers improve user experience. User experience is <b>ESSENTIAL</b>.</p>
 							</div>
-					</section>
-					<section data-markdown data-background-color="#b5533c">
-							<textarea data-template>
-								# Thanks!
-						
-								Make Web Apps (great?) (again?)
-							</textarea>
 					</section>
 				</div>	
 			</div>
 		</div>
 
 		<script src="js/reveal.js"></script>
+		<script src="index.js"></script>
+		<script src="indexdb-getallshim.js"></script>
 
 		<script>
 			// More info about config & dependencies:
