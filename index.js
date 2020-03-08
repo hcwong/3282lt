@@ -7,14 +7,21 @@ if ('serviceWorker' in navigator) {
         .then(function(registration) {
             document.getElementById('submitForm').addEventListener('click', (event) => {
                 event.preventDefault();
+                if (navigator.onLine) {
+                  console.log("online")
+                  sendDataOnline()
+                  return
+                }
                 saveData().then(function() {
                     if(registration.sync) {
                         registration.sync.register('example-sync')
                         .catch(function(err) {
+                            console.log("Failed to sync")
                             return err;
                         })
                     } else {
                         // sync isn't there so fallback
+                      console.log("sync not found")
                         checkInternet();
                     }
                 });
@@ -41,6 +48,7 @@ function checkIndexedDB() {
                           'Content-Type': 'application/json'
                         }
                     }).then(function(rez) {
+                        console.log("fetching")
                         return rez.text();
                     }).then(function(response) {
                         newsletterDB.result.transaction("newsletterObjStore", "readwrite")
@@ -57,6 +65,7 @@ function checkIndexedDB() {
 function initializeDB() {
     var newsletterDB = window.indexedDB.open('newsletterSignup');
 
+    console.log("Initializing db");
     newsletterDB.onupgradeneeded = function(event) {
         var db = event.target.result;
 
@@ -78,8 +87,10 @@ function saveData() {
         };
     
         var myDB = window.indexedDB.open('newsletterSignup');
+        console.log("saving")
     
         myDB.onsuccess = function(event) {
+          console.log("sucessfully saved")
           var objStore = this.result.transaction('newsletterObjStore', 'readwrite').objectStore('newsletterObjStore');
           objStore.add(tmpObj);
           resolve();
@@ -109,6 +120,7 @@ function fetchData() {
 
 function sendData() {
     fetchData().then(function(response) {
+      console.log("in send data", response)
         var postObj = {
             method: 'POST',
             body: JSON.stringify(response),
@@ -116,11 +128,34 @@ function sendData() {
               'Content-Type': 'application/json'
             }
         };
+        alert("Sending saved data: " + postObj.body)
     
         // send request
         return window.fetch('https://www.mocky.io/v2/5c0452da3300005100d01d1f', postObj)
     })
-    .then(() => {alert("Done sending data!")})
+    .then(clearData)
+    .catch(function(err) {
+        console.log(err);
+    });
+}
+
+function sendDataOnline() {
+    var tmpObj = {
+        firstName: document.getElementById('firstname').value,
+        lastName: document.getElementById('lastname').value,
+        email: document.getElementById('email').value,
+        dateAdded: new Date()
+    };
+    var postObj = {
+        method: 'POST',
+        body: JSON.stringify(tmpObj),
+        headers:{
+          'Content-Type': 'application/json'
+        }
+    }
+
+    // send request
+    return window.fetch('https://www.mocky.io/v2/5c0452da3300005100d01d1f', postObj)
     .then(clearData)
     .catch(function(err) {
         console.log(err);
@@ -129,16 +164,16 @@ function sendData() {
 
 function clearData() {
     return new Promise(function(resolve, reject) {
-        var db = window.indexedDB.open('newsletterSignup');
-        db.onsuccess = function(event) {
-            db.transaction("newsletterSignup", "readwrite")
-            .objectStore("newsletterObjStore")
-            .clear();
+        var request = window.indexedDB.open('newsletterSignup');
 
-            resolve();
-        }
+      request.onsuccess = function(event) {
+        db =request.result;
+        var transaction = db.transaction(["newsletterObjStore"], "readwrite")
+        var objectStore = transaction.objectStore("newsletterObjStore")
+        objectStore.clear()
+      }
 
-        db.onerror = function(err) {
+        request.onerror = function(err) {
             reject(err);
         }
     })
@@ -154,8 +189,10 @@ function checkInternet() {
 }
 
 window.addEventListener('online', function() {
-    if(!navigator.serviceWorker && !window.SyncManager) {
+    alert("You are online")
+    if(navigator.serviceWorker) {
         fetchData().then(function(response) {
+          console.log(response)
             if(response.length > 0) {
                 return sendData();
             }
