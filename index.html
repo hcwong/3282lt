@@ -111,9 +111,9 @@
 				<section>
 					<div class="dcf">
 						<div class="title" style="margin-left: 0; text-align:center;">Key points</div>
-						<p class="fragment fade-in">1. Why use service workers</p>
-						<p class="fragment fade-in">2. How service workers improve your user experience</p>
-						<p class="fragment fade-in">3. Using service workers wisely</p>
+						<p class="fragment fade-in">1. Why use service workers in an era of mobile apps</p>
+						<p class="fragment fade-in">2. What do service workers offer</p>
+						<p class="fragment fade-in">3. How to get started, wisely</p>
 					</div>
 				</section>
 				<section data-markdown>
@@ -143,12 +143,11 @@
             <p class="fragment fade-in-then-semi-out">That's the number of new apps in the Play Store every day</p>
             <span class="fragment fade-in"><p>Will people even overcome the high BTE to get your app?</p></span>
 				</section>
-        <section data-background-color="#4D7E65" data-transition="zoom">
-            <div class="dcf" style="margin-bottom: 180px;">
-                <div class="title" style="margin-bottom: 80px;margin-left: 0px; text-align:center;">Why use service workers</div>
-                <div>Provide an offline experience!</div>
-              </div>	
-        </section>
+				<section data-markdown data-background-color="#4D7E65">
+					<textarea data-template>
+            ### What do service workers offer?
+					</textarea>
+				</section>
         <section data-background-color="#4D7E65">
 					<div class="dcf">
 						<div class="title" style="margin-left: 0;">Before</div>
@@ -169,10 +168,10 @@
         </section>
         <section data-background-color="#4D7E65">
           <div class="dcf">
-            <div class="title" style="margin-left: 0;">Background sync</div>
+            <div class="title" style="margin-left: 0;">Save offline requests</div>
             <div class="container">
-              <form action="?">
-
+              <form action="?" id="formteammates">
+                <div style="color: black; margin-bottom: 24px;">Help a poor TEAMMATES developer get his lunch</div>
                 <label for="firstname">First Name</label>
                 <input type="text" id="firstname" name="firstname" placeholder="Your name..">
 
@@ -182,19 +181,26 @@
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Your email...">
 
-                <input type="submit" id="submitForm" value="Some Interaction with background sync">
+                <input type="submit" id="submitForm" value="Send 5 dollars now!">
 
               </form>
             </div>
           </div>
         </section>
-        <section data-background-color="#4D7E65" data-transition="zoom">
+        <section data-background-color="#4D7E65">
+					<div class="dcf">
+            <div class="title" style="margin-left: 0;">Many more recipes to play with</div>
+						<img src="swcookbook.png" style="height: 500px;">
+					</div>
+        </section>
+        <section data-background-color="#b5533c" data-transition="zoom">
 					<div class="dcf">
 						<img src="yousob.jpg" style="height: 500px;">
+            <div style="margin-left: 0px">Getting started, wisely</div>
 					</div>
         </section>
 					<section data-background-color="#b5533c">
-              <div class="title" style="margin-bottom: 80px;margin-left: 0px;">Getting Started</div>
+              <div class="title" style="margin-bottom: 80px;margin-left: 0px;">Just paste this!</div>
 							<div class="dcf" style="margin-bottom: 180px;">
                   <pre><code class="hljs" data-line-numbers="1|2|3-7">if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
@@ -212,6 +218,14 @@
                   </code></pre>
                   <p>Read more <a href="https://developers.google.com/web/fundamentals/primers/service-workers">here</a>!</p>
 								</div>	
+					</section>
+					<section data-background-color="#b5533c">
+						<div class="dcf" style="margin-bottom: 180px;">
+							<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Service Worker Life Cycle</div>
+							<p class="fragement fade-in">1. Register</p>
+							<p class="fragement fade-in">2. Install </p>
+							<p class="fragement fade-in">3. Activate </p>
+						</div>
 					</section>
 				<section data-markdown data-background-color="#b5533c">
 					<textarea data-template>

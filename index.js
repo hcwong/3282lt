@@ -85,6 +85,7 @@ function saveData() {
             email: document.getElementById('email').value,
             dateAdded: new Date()
         };
+        clearInnerText()
     
         var myDB = window.indexedDB.open('newsletterSignup');
         console.log("saving")
@@ -146,6 +147,7 @@ function sendDataOnline() {
         email: document.getElementById('email').value,
         dateAdded: new Date()
     };
+    clearInnerText()
     var postObj = {
         method: 'POST',
         body: JSON.stringify(tmpObj),
@@ -204,3 +206,6 @@ window.addEventListener('offline', function() {
     alert('You have lost internet access!');
 });
 
+function clearInnerText() {
+  document.getElementById("formteammates").reset()
+}
