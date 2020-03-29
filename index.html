@@ -35,6 +35,10 @@
 				margin-left: 20%;
 				width: 100%;
 			}
+      
+      td {
+        border-bottom: 1px solid white !important;
+      }
 
       /* Style inputs with type="text", select elements and textareas */
       input[type=text], select, textarea {
@@ -70,6 +74,28 @@
         padding: 20px;
         width: 60%;
       }
+
+      .list {
+        text-align: left;
+        font-size: 30px;
+      }
+
+      .key-point {
+        color: #fbbfb5;
+      }
+
+      .sub-point {
+        margin-left: 24px !important;
+      }
+
+      .focus {
+        border: 1px solid red;
+      }
+
+      .transition-slide {
+        background-color: #000000;
+        margin: 24px 48px;
+      }
       
       label {
         color: #000000;
@@ -99,76 +125,7 @@
 					</div>
 				</section>
         <section>
-					<div class="dcf">
-						<img src="jianyang.jpg" style="height: 500px;">
-					</div>
-        </section>
-        <section>
-					<div class="dcf">
-						<img src="jared.gif" style="height: 500px;">
-					</div>
-        </section>
-				<section>
-					<div class="dcf">
-						<div class="title" style="margin-left: 0; text-align:center;">Key points</div>
-						<p class="fragment fade-in">1. Why use service workers in an era of mobile apps</p>
-						<p class="fragment fade-in">2. What do service workers offer</p>
-						<p class="fragment fade-in">3. How to get started, wisely</p>
-					</div>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-            ### Why use service workers
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-              Service workers are scripts that run in the **background** that bring rich offline features.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						  Sounds cool, but why not just use a mobile app for this? 
-
-              Stop abusing the web!
-					</textarea>
-				</section>
-        <section>
-					<div class="dcf">
-						<img src="apps.png" style="height: 500px;">
-					</div>
-        </section>
-				<section>
-            <p class="fragment grow" style="font-size: 72px">6140</p>
-            <p class="fragment fade-in-then-semi-out">That's the number of new apps in the Play Store every day</p>
-            <span class="fragment fade-in"><p>Will people even overcome the high BTE to get your app?</p></span>
-				</section>
-				<section data-markdown data-background-color="#4D7E65">
-					<textarea data-template>
-            ### What do service workers offer?
-					</textarea>
-				</section>
-        <section data-background-color="#4D7E65">
-					<div class="dcf">
-						<div class="title" style="margin-left: 0;">Before</div>
-						<img src="shopee.png" style="height: 500px;">
-					</div>
-        </section>
-        <section data-background-color="#4D7E65">
-					<div class="dcf">
-						<div class="title" style="margin-left: 0;">After</div>
-						<img src="nointernet.png" style="height: 500px;">
-					</div>
-        </section>
-        <section data-background-color="#4D7E65">
-					<div class="dcf">
-						<div class="title" style="margin-left: 0;">Before/After with service workers</div>
-						<img src="shopee.png" style="height: 500px;">
-					</div>
-        </section>
-        <section data-background-color="#4D7E65">
           <div class="dcf">
-            <div class="title" style="margin-left: 0;">Save offline requests</div>
             <div class="container">
               <form action="?" id="formteammates">
                 <div style="color: black; margin-bottom: 24px;">Help a poor TEAMMATES developer get his lunch</div>
@@ -182,72 +139,161 @@
                 <input type="text" id="email" name="email" placeholder="Your email...">
 
                 <input type="submit" id="submitForm" value="Send 5 dollars now!">
-
               </form>
             </div>
           </div>
         </section>
-        <section data-background-color="#4D7E65">
-					<div class="dcf">
-            <div class="title" style="margin-left: 0;">Many more recipes to play with</div>
-						<img src="swcookbook.png" style="height: 500px;">
+				<section data-background-image="./background.png">
+					<div class="dcf" >
+						<div class="title" style="margin-left: 0; text-align:center;">Outline</div>
+            <div class="list">
+              <p>1. Demo</p>
+              <p class="fragment highlight-green">2. What are service workers</p>
+              <p>3. Why use service workers</p>
+              <p class="key-point sub-point">KP1. Service workers are a gateway drug</p>
+              <p class="key-point sub-point">KP2. Service workers offer an app-like experience</p>
+              <p class="key-point sub-point">KP3. But there are some pitfalls to look out for too</p>
+            </div>
 					</div>
-        </section>
-        <section data-background-color="#b5533c" data-transition="zoom">
-					<div class="dcf">
-						<img src="yousob.jpg" style="height: 500px;">
-            <div style="margin-left: 0px">Getting started, wisely</div>
-					</div>
-        </section>
-					<section data-background-color="#b5533c">
-              <div class="title" style="margin-bottom: 80px;margin-left: 0px;">Just paste this!</div>
-							<div class="dcf" style="margin-bottom: 180px;">
-                  <pre><code class="hljs" data-line-numbers="1|2|3-7">if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js')
-      .then(function(registration) {
-      // Registration was successful
-      console.log('ServiceWorker registration successful with scope: '
-      , registration.scope);
-    }, function(err) {
-      // registration failed :(
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  });
-}
-                  </code></pre>
-                  <p>Read more <a href="https://developers.google.com/web/fundamentals/primers/service-workers">here</a>!</p>
-								</div>	
-					</section>
-					<section data-background-color="#b5533c">
-						<div class="dcf" style="margin-bottom: 180px;">
-							<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Service Worker Life Cycle</div>
-							<p class="fragement fade-in">1. Register</p>
-							<p class="fragement fade-in">2. Install </p>
-							<p class="fragement fade-in">3. Activate </p>
-						</div>
-					</section>
-				<section data-markdown data-background-color="#b5533c">
+				</section>
+				<section data-markdown>
 					<textarea data-template>
-            ### Using service workers wisely
+              Service workers are **NOT** offline helpers, **NOT** push notifications, **NOT** web workers
+
+              Service workers are a kind of worker that runs in the **background**.
 					</textarea>
 				</section>
-					<section data-background-color="#b5533c">
-						<div class="dcf" style="margin-bottom: 180px;">
-							<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Problems</div>
-							<p>1. Hard to test</p>
-							<p>2. A lot of undefined behaviour happening </p>
-							<p>3. No really good libraries </p>
-						</div>
-					</section>	
-					<section data-background-color="#b5533c">
-							<div class="dcf" style="margin-bottom: 180px;">
-								<div class="title" style="margin-bottom: 80px;margin-left: 0px;">Thanks!</div>
-								<p>1. No one likes downloading apps</p>
-								<p>2. Service workers provide an app-like experience without barriers to entry</p>
-                <p>3. Service workers improve user experience. User experience is <b>ESSENTIAL</b>.</p>
-							</div>
-					</section>
+				<section data-markdown>
+					<textarea data-template>
+              Examples of these background features include:
+
+              1. Intercepting and handling network requests
+              
+              2. Many more features that do not need a web page or user interaction
+					</textarea>
+				</section>
+				<section data-background-image="./background.png">
+					<div class="dcf" >
+						<div class="title" style="margin-left: 0; text-align:center;">Outline</div>
+            <div class="list">
+              <p>1. Demo</p>
+              <p>2. What are service workers</p>
+              <p class="fragment highlight-green">3. Why use service workers</p>
+              <p class="key-point sub-point">KP1. Service workers are a gateway drug</p>
+              <p class="key-point sub-point">KP2. Service workers offer an app-like experience</p>
+              <p class="key-point sub-point">KP3. But there are some pitfalls to look out for too</p>
+            </div>
+					</div>
+				</section>
+        <section>
+					<div class="dcf">
+						<img src="apps.png" style="height: 500px;">
+					</div>
+        </section>
+				<section>
+            <p class="fragment grow" style="font-size: 72px">6140</p>
+            <p class="fragment fade-in-then-semi-out">That's the number of new apps in the Play Store every day</p>
+            <span class="fragment fade-in-then-semi-out"><p>There exists an immense barrier to entry to download the app</p></span>
+            <span class="list">
+              <p class="fragment fade-in">1. First, see the app;</p>
+              <p class="fragment fade-in">2. Then find wifi to go to App Store;</p>
+              <p class="fragment fade-in">3. Try to remember password/reset password;</p>
+              <p class="fragment fade-in">4. Lastly, not delete your app within 30 seconds;</p>
+            </span>
+				</section>
+				<section data-background-image="./background.png">
+					<div class="dcf" >
+						<div class="title" style="margin-left: 0; text-align:center;">Outline</div>
+            <div class="list">
+              <p>1. Demo</p>
+              <p>2. What are service workers</p>
+              <p>3. Why use service workers</p>
+              <p class="key-point sub-point fragment highlight-green">KP1. Service workers are a gateway drug</p>
+              <p class="key-point sub-point">KP2. Service workers offer an app-like experience</p>
+              <p class="key-point sub-point">KP3. But there are some pitfalls to look out for too</p>
+            </div>
+					</div>
+				</section>
+				<section>
+          <p style="font-size: 48px;" class="fragment fade-in-then-semi-out">Compare this to the previous user story with the mobile app</p>
+            <span class="list">
+              <p class="fragment fade-in">1. First, see the website;</p>
+              <p class="fragment fade-in">2. Click on the link to go to the website to use it;</p>
+              <p class="fragment fade-in">end;</p>
+              <p class="fragment fade-in">Now that you have a converted a user, you can slowly push the user to use the mobile app!</p>
+            </span>
+				</section>
+        <section>
+					<div class="dcf">
+            <div class="title key-point" style="margin-bottom: 80px; font-size: 48px;">Service workers offer an app-like experience</div>
+            <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
+              <p class="fragment">Recieving data from your app (View)</p>
+              <p class="fragment">Interacting with your app (Action)</p>
+            </div>
+        </section>
+        <section>
+					<div class="dcf">
+						<div class="title" style="margin-left: 0;">Before (View)</div>
+						<img src="shopee.png" style="height: 500px;">
+					</div>
+        </section>
+        <section>
+					<div class="dcf">
+						<div class="title" style="margin-left: 0;">After (View)</div>
+						<img src="nointernet.png" style="height: 500px;">
+					</div>
+        </section>
+        <section>
+					<div class="dcf">
+						<div class="title" style="margin-left: 0;">Before/After with service workers (View)</div>
+						<img src="shopee.png" style="height: 500px;">
+					</div>
+        </section>
+        <section>
+					<div class="dcf">
+						<img src="doggo.jpg" style="height: 500px;">
+            <div style="margin-left: 0px" class="key-point">But there are some pitfalls...</div>
+					</div>
+        </section>
+        <section>
+          <div class="dcf" style="margin-bottom: 180px;">
+            <div class="title key-point" style="margin-bottom: 40px; margin-left: 0px;">But the pitfalls...</div>
+            <div class="list" style="font-size: 40px;">
+              <p class="fragemnt">1. Hard to test</p>
+              <p class="fragment">2. It's still very much a work in progress, so there is undefined behaviour within the API </p>
+              <p class="fragment sub-point">2.1 Though, all the real famous web developers are working on this</p>
+              <p class="fragment">3. No really good libraries to help abstract out the really complicated parts</p>
+              <p class="fragment sub-point">3.1 Increasing adoption is likely to change this</p>
+            </div>
+          </div>
+        </section>	
+        <section data-background-image="./background.png">
+            <div class="dcf" style="margin-bottom: 140px;">
+              <div class="title" style="margin-bottom: 60px; margin-top: 40px;">Start today!</div>
+              <table style="font-size: 22px; margin-bottom: 40px">
+                  <thead><th>Key points</th><th>Explanations</th></thead>
+                  <tbody>
+                      <tr>
+                        <td class="key-point">Why use service workers?</td>
+                        <td>Mobile apps have terrible adoption rate!</td>
+                      </tr>
+                      <tr>
+                        <td class="key-point">Service workers are a gateway drug</td>
+                        <td>There are no barriers to entry. Once you have hooked your user, then make them use the mobile app</td>
+                      </tr>
+                      <tr>
+                        <td class="key-point">Service workers offer an app-like experience</td>
+                        <td>It offers nice offline experiences when both viewing an interacting with the app, making it different from normal web pages</td>
+                      <tr>
+                        <td class="key-point">But there are pitfalls</td>
+                        <td>It's hard to write and test, though with more people using this, things will improve!</td>
+                      </tr>
+                      </tr>
+                  </tbody>
+              </table>
+              <p style="font-size: 40px;" class="fragment highlight-green">Whether you are a web or mobile developer, there is something in it for you!</p>
+            </div>
+        </section>
 				</div>	
 			</div>
 		</div>

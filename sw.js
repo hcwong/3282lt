@@ -7,6 +7,8 @@ var urlsToCache = [
   './shopee.png',
   './jared.gif',
   './',
+  './doggo.jpg',
+  './background.png',
   './index.js',
   './dino.png',
   './badinternet.png',
